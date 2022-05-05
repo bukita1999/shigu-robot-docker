@@ -4,7 +4,14 @@ SHELL ["/bin/bash", "-c"]
 #复制Shigu源码
 RUN mkdir -p ~/Shigu/src && cd ~/Shigu/src && git clone https://gitee.com/bukita2019/shigu_robot.git && ls
 
-RUN cd ~/Shigu/src && git clone https://gitee.com/bukita2019/shigu_robot_dependence.git
+#下载依赖
+RUN cd ~/Shigu/src && git clone https://gitee.com/bukita2019/shigu_robot_dependence.git \
+    && git clone -b melodic-devel https://github.91chi.fun/https://github.com/ros-teleop/twist_mux.git \
+    && git clone -b melodic-devel https://github.91chi.fun/https://github.com/introlab/rtabmap_ros.git \
+    && git clone -b kinetic-devel https://github.91chi.fun/https://github.com/ros-visualization/interactive_marker_twist_server.git\
+    && git clone -b melodic-devel https://github.91chi.fun/https://github.com/ros-perception/slam_gmapping.git \
+    && git clone -b melodic-devel https://github.91chi.fun/https://github.com/ros/robot_state_publisher.git \
+    && git clone -b melodic-devel https://github.91chi.fun/https://github.com/cra-ros-pkg/robot_localization.git
 
 RUN apt update && apt-get install -y \
     libceres-dev libgps-dev ros-melodic-geographic-msgs \
@@ -13,5 +20,8 @@ RUN apt update && apt-get install -y \
     && ln -s /usr/share/cmake/geographiclib/FindGeographicLib.cmake /usr/share/cmake-3.10/Modules/
 
 
+
 RUN cd ~/Shigu && source /opt/ros/melodic/setup.bash && catkin_make
+
+
 
