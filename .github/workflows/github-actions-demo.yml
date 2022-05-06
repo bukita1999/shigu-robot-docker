@@ -13,7 +13,7 @@ jobs:
         env:
           image_name: choate1990/shigu_robot
           tag: melodic-ros-desktop-full
-        run:
+        run: |
           docker version
           docker login --username=${{ secrets.DOCKER_USERNAME }} --password=${{ secrets.DOCKER_PASSWORD }}
           cd shigu-robot/desktop-full
