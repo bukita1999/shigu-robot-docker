@@ -1,6 +1,6 @@
 name: Build Shigu Docker Image
 on: 
-  #每次master发生推送就会运行一次.
+  #每次master发生推送就会运行一次
   push:
     branches: [master]
 jobs: 
