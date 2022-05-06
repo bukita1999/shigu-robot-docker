@@ -3,8 +3,6 @@ on:
   #每次master发生推送就会运行一次
   push:
     branches: [master]
-  pull request:
-    branches: [master]
 jobs: 
   docker_build:
     runs-on: ubuntu-latest
