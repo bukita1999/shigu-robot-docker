@@ -20,7 +20,7 @@ RUN apt update && apt-get install -y \
     libceres-dev libgps-dev ros-melodic-geographic-msgs \
     libgeographic-dev ros-melodic-geographic-* ros-melodic-qt-build \
     geographiclib-* ros-melodic-serial ros-melodic-tf2-sensor-msgs\
-    ros-melodic-fiducial-msgs ros-melodic-rtabmap-ros \
+    ros-melodic-fiducial-msgs ros-melodic-rtabmap-ros libsdl-image1.2-dev libsdl-dev \
     && ln -s /usr/share/cmake/geographiclib/FindGeographicLib.cmake /usr/share/cmake-3.10/Modules/
 
 
