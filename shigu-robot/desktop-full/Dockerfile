@@ -10,7 +10,8 @@ RUN cd ~/Shigu/src && git clone https://gitee.com/bukita2019/shigu_robot_depende
     && git clone -b kinetic-devel https://github.91chi.fun/https://github.com/ros-visualization/interactive_marker_twist_server.git\
     && git clone -b melodic-devel https://github.91chi.fun/https://github.com/ros-perception/slam_gmapping.git \
     && git clone -b melodic-devel https://github.91chi.fun/https://github.com/ros/robot_state_publisher.git \
-    && git clone -b melodic-devel https://github.91chi.fun/https://github.com/cra-ros-pkg/robot_localization.git
+    && git clone -b melodic-devel https://github.91chi.fun/https://github.com/cra-ros-pkg/robot_localization.git \
+    && git clone -b melodic-devel https://github.91chi.fun/https://github.com/ros-planning/navigation.git
 
 RUN cd ~/Shigu/src && git clone -b melodic-devel https://github.91chi.fun/https://github.com/ros-perception/openslam_gmapping.git\
     && git clone -b ros1 https://github.91chi.fun/https://github.com/ros-planning/navigation_msgs.git
