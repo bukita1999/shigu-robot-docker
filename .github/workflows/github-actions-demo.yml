@@ -17,7 +17,7 @@ jobs:
           docker version
           docker login --username=${{ secrets.DOCKER_USERNAME }} --password=${{ secrets.DOCKER_PASSWORD }}
           cd shigu-robot/melodic-desktop-full
-          docker build -t $image_name:$tag .
+          docker build -t $image_name:$tag . --no-cache
           docker push $image_name:$tag
       - name: Build And Push Noetic Docker Image
         env: 
@@ -27,5 +27,5 @@ jobs:
           docker version
           docker login --username=${{ secrets.DOCKER_USERNAME }} --password=${{ secrets.DOCKER_PASSWORD }}
           cd shigu-robot/melodic-desktop-full
-          docker build -t $image_name:$tag .
+          docker build -t $image_name:$tag . --no-cache
           docker push $image_name:$tag
