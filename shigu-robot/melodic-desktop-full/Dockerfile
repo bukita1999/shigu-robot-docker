@@ -1,6 +1,8 @@
 From choate1990/ros_china:melodic-ros-desktop-full
 
 SHELL ["/bin/bash", "-c"]
+
+RUN apt update && apt install -y git
 #复制Shigu源码
 RUN mkdir -p ~/Shigu/src && cd ~/Shigu/src && git clone https://gitee.com/bukita2019/shigu_robot.git && ls
 
