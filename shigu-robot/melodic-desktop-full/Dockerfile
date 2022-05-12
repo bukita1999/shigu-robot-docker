@@ -28,7 +28,7 @@ RUN apt update && apt-get install -y \
     && ln -s /usr/share/cmake/geographiclib/FindGeographicLib.cmake /usr/share/cmake-3.10/Modules/ 
     
 RUN cd ~/ && git clone https://github.91chi.fun/https://github.com/chaolmu/gazebo_models_worlds_collection.git \
-    && cp ~/gazebo_models_worlds_collection/models ~/.gazebo/ \
+    && cd ~/gazebo_models_worlds_collection && cp models ~/.gazebo/models \
     && rm -rf ~/gazebo_models_worlds_collection/models
 
 
