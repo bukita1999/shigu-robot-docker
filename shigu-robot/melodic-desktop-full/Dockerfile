@@ -37,7 +37,7 @@ RUN cd ~/ && git clone https://github.91chi.fun/https://github.com/chaolmu/gazeb
 
 RUN cd ~/Shigu && source /opt/ros/melodic/setup.bash && catkin_make
 
-RUN source ~/Shigu/devel/setup.bash 
+RUN source ~/opt/ros/melodic/setup.bash && source ~/Shigu/devel/setup.bash 
 
 RUN rostest shigu_gazebo available_data_test.test
 
