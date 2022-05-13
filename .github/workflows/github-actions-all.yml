@@ -37,14 +37,15 @@ jobs:
     container:  choate1990/shigu_robot:melodic-ros-desktop-full
     needs:
       - docker_build
-    shell: bash
     steps:
       - name: Regression Test available_data_test
+        shell: bash
         run: | 
           cd /root/Shigu/
           source devel/setup.bash
           rostest shigu_gazebo available_data_test.test
       - name: Regression Test unavailable_data_test
+        shell: bash
         run: | 
           cd /root/Shigu/
           source devel/setup.bash
