@@ -11,8 +11,6 @@ jobs:
   regression_test:
     runs-on: ubuntu-latest
     container:  choate1990/shigu_robot:melodic-ros-desktop-full
-    needs:
-      - docker_build
     shell: bash
     steps:
       - name: Regression Test available_data_test
