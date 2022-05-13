@@ -29,11 +29,14 @@ jobs:
       #     cd shigu-robot/melodic-desktop-full
       #     docker build -t $image_name:$tag . --no-cache
       #     docker push $image_name:$tag
+jobs:
+  regression_test:
+    runs-on: ubuntu-latest
+    container:  choate1990/shigu_robot:melodic-ros-desktop-full
+    steps:
       - name: Regression Test available_data_test
         run: | 
-          docker run -it choate1990/shigu_robot:melodic-ros-desktop-full /bin/bash
           cd /root/Shigu/ && source devel/setup.bash && rostest shigu_gazebo available_data_test.test
       - name: Regression Test unavailable_data_test
         run: | 
-          docker run -it choate1990/shigu_robot:melodic-ros-desktop-full /bin/bash
           cd /root/Shigu/ && source devel/setup.bash && rostest shigu_gazebo unavailable_data_test.test
