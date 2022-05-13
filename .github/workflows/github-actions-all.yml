@@ -1,8 +1,11 @@
-name: Build Shigu Docker Image
+name: Build and Test Shigu Docker Image
 on: 
   #每次master发生推送就会运行一次
   push:
-    branches: [master]
+    branches: 
+      - master
+    tags:
+      - all
 jobs: 
   docker_build:
     runs-on: ubuntu-latest
@@ -32,10 +35,17 @@ jobs:
   regression_test:
     runs-on: ubuntu-latest
     container:  choate1990/shigu_robot:melodic-ros-desktop-full
+    needs:
+      - docker_build
+    shell: bash
     steps:
       - name: Regression Test available_data_test
         run: | 
-          /bin/bash && cd /root/Shigu/ && source devel/setup.bash && rostest shigu_gazebo available_data_test.test
+          cd /root/Shigu/
+          source devel/setup.bash
+          rostest shigu_gazebo available_data_test.test
       - name: Regression Test unavailable_data_test
         run: | 
-          /bin/bash && cd /root/Shigu/ && source devel/setup.bash && rostest shigu_gazebo unavailable_data_test.test
+          cd /root/Shigu/
+          source devel/setup.bash
+          rostest shigu_gazebo unavailable_data_test.test
