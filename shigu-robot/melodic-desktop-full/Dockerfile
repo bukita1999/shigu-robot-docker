@@ -27,7 +27,7 @@ RUN apt update && apt-get install -y \
     mesa-utils software-properties-common libnetpbm10-dev\
     && ln -s /usr/share/cmake/geographiclib/FindGeographicLib.cmake /usr/share/cmake-3.10/Modules/ 
 
-RUN add-apt-repository ppa:kisak/kisak-mesa  && apt-get update && apt -y dist-upgrade || apt --fix-broken install
+RUN add-apt-repository ppa:kisak/kisak-mesa  && apt-get update && apt -y dist-upgrade || apt --fix-broken install -y
 
 RUN cd ~/ && git clone https://github.91chi.fun/https://github.com/chaolmu/gazebo_models_worlds_collection.git \
     && cd ~/gazebo_models_worlds_collection && cp -a models ~/.gazebo/ \
