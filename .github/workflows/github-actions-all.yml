@@ -1,8 +1,8 @@
 name: Build and Test Shigu Docker Image
 on: 
   push:
-    tags:
-      - all 
+    branches: 
+      master
 jobs: 
   docker_build:
     runs-on: ubuntu-latest
@@ -19,6 +19,13 @@ jobs:
           cd shigu-robot/melodic-desktop-full
           docker build -t $image_name:$tag . --no-cache
           docker push $image_name:$tag
+          docker run --name Shigu_Melodic $image_name:$tag 
+          cd && docker export Shigu_Melodic > Shigu_Melodic.tar
+          cd && wget https://github.com/Mikubill/transfer/releases/download/v0.4.17/transfer_0.4.17_linux_amd64.tar.gz 
+          tar -zxvf transfer_0.4.17_linux_amd64.tar.gz
+          ./transfer cow --cookie="remember-mev2=${{ secrets.REMEMBER_MEV2 }};" -a "${{ secrets.COW_AUTH_TOKEN }}" Shigu_Melodic.tar
+          
+
       # - name: Build And Push Noetic Docker Image
       #   env: 
       #     image_name: choate1990/shigu_robot
@@ -29,13 +36,13 @@ jobs:
       #     cd shigu-robot/melodic-desktop-full
       #     docker build -t $image_name:$tag . --no-cache
       #     docker push $image_name:$tag
-  regression_test:
-    runs-on: ubuntu-latest
-    container: choate1990/shigu_robot:melodic-ros-desktop-full
-    needs:
-      - docker_build
-    steps:
-      - name: Regression Test 
-        shell: bash
-        run: |
-          cd /root/Shigu && source /root/Shigu/devel/setup.bash && catkin_make run_tests
+  # regression_test:
+  #   runs-on: ubuntu-latest
+  #   container: choate1990/shigu_robot:melodic-ros-desktop-full
+  #   needs:
+  #     - docker_build
+  #   steps:
+  #     - name: Regression Test 
+  #       shell: bash
+  #       run: |
+  #         cd /root/Shigu && source /root/Shigu/devel/setup.bash && catkin_make run_tests
