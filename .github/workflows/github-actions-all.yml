@@ -34,10 +34,10 @@ jobs:
       #     docker push $image_name:$tag
   regression_test:
     runs-on: ubuntu-latest
-    container:  choate1990/shigu_robot:melodic-ros-desktop-full
+    container: choate1990/shigu_robot:melodic-ros-desktop-full
     needs:
       - docker_build
     steps:
       - name: Regression Test 
         run: |
-          cd ~/Shigu && catkin_make run_tests
+          cd /root/Shigu && catkin_make run_tests
