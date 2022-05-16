@@ -24,7 +24,7 @@ RUN apt update && apt-get install -y \
     libgeographic-dev ros-melodic-geographic-* ros-melodic-qt-build \
     geographiclib-* ros-melodic-serial ros-melodic-tf2-sensor-msgs\
     ros-melodic-fiducial-msgs ros-melodic-rtabmap-ros libsdl-image1.2-dev libsdl-dev \
-    mesa-utils software-properties-common\
+    mesa-utils software-properties-common libnetpbm10-dev\
     && ln -s /usr/share/cmake/geographiclib/FindGeographicLib.cmake /usr/share/cmake-3.10/Modules/ 
     
 RUN cd ~/ && git clone https://github.91chi.fun/https://github.com/chaolmu/gazebo_models_worlds_collection.git \

@@ -1,11 +1,7 @@
 name: Build and Test Shigu Docker Image
 on: 
-  #每次master发生推送就会运行一次
-  push:
-    branches: 
-      - master
-    tags:
-      - all
+  tags:
+    - all
 jobs: 
   docker_build:
     runs-on: ubuntu-latest
