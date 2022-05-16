@@ -1,7 +1,8 @@
 name: Build and Test Shigu Docker Image
 on: 
-  tags:
-    - all
+  push:
+    tags:
+      - all
 jobs: 
   docker_build:
     runs-on: ubuntu-latest
