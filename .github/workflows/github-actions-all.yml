@@ -39,5 +39,6 @@ jobs:
       - docker_build
     steps:
       - name: Regression Test 
+        shell: bash
         run: |
-          cd /root/Shigu && catkin_make run_tests
+          cd /root/Shigu && source /root/Shigu/devel/setup.bash && catkin_make run_tests
