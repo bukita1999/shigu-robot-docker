@@ -32,11 +32,8 @@ RUN cd ~/ && git clone https://github.91chi.fun/https://github.com/chaolmu/gazeb
     && rm -rf ~/gazebo_models_worlds_collection/models
 
 
-# RUN add-apt-repository ppa:kisak/kisak-mesa && apt-get update && apt -y dist-upgrade
-
-
 RUN cd ~/Shigu && source /opt/ros/melodic/setup.bash && catkin_make
 
-
+RUN add-apt-repository ppa:kisak/kisak-mesa && apt-get update && apt -y dist-upgrade
 
 
