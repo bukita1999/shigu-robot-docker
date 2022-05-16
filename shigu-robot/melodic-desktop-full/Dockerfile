@@ -28,12 +28,12 @@ RUN apt update && apt-get install -y \
     && ln -s /usr/share/cmake/geographiclib/FindGeographicLib.cmake /usr/share/cmake-3.10/Modules/ 
     
 RUN cd ~/ && git clone https://github.91chi.fun/https://github.com/chaolmu/gazebo_models_worlds_collection.git \
-    && cd ~/gazebo_models_worlds_collection && cp -r models ~/.gazebo/ \
-    && rm -rf ~/gazebo_models_worlds_collection/models
+    && cd ~/gazebo_models_worlds_collection && cp -r models ~/.gazebo/models \
+    && rm -rf ~/gazebo_models_worlds_collection
 
 
 RUN cd ~/Shigu && source /opt/ros/melodic/setup.bash && catkin_make
 
-RUN add-apt-repository ppa:kisak/kisak-mesa && apt-get update && apt -y dist-upgrade
+RUN add-apt-repository ppa:kisak/kisak-mesa  && apt-get update && apt -y dist-upgrade || apt --fix-broken install
 
 
