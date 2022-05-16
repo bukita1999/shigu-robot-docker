@@ -38,15 +38,6 @@ jobs:
     needs:
       - docker_build
     steps:
-      - name: Regression Test available_data_test
-        shell: bash
-        run: | 
-          cd /root/Shigu/
-          source devel/setup.bash
-          rostest shigu_gazebo available_data_test.test
-      - name: Regression Test unavailable_data_test
-        shell: bash
-        run: | 
-          cd /root/Shigu/
-          source devel/setup.bash
-          rostest shigu_gazebo unavailable_data_test.test
+      - name: Regression Test 
+        run: |
+          cd ~/Shigu && catkin_make run_tests
